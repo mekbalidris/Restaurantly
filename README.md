@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/c757b31c-44f8-48fe-a1bf-04fbb12e3ffa)
+
 # Restaurant Website  
 
 <p>Welcome to my Restaurant Website project—an illustrative demonstration of my capabilities in front-end web development and design. This application is built using <strong>ReactJS</strong> for a dynamic, responsive user experience, paired with the utility-first CSS framework <strong>Tailwind CSS</strong> to create aesthetically pleasing and maintainable styles.</p>  
