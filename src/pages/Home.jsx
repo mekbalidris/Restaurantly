@@ -35,9 +35,9 @@ export default function Home() {
               Restaurantly
             </span>
           </h1>
-          <h2 className="text-gray-300 text-lg mb-6">
+          <h3 className="text-gray-300 text-lg mb-6">
             Delivering great food for more than 18 years!
-          </h2>
+          </h3>
           <div className="flex gap-4">
             <button className="buttons">
               OUR MENU
