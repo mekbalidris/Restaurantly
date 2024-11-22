@@ -4,6 +4,7 @@ export default function About(){
 
     return(
         <>
+        <div id="about">
         <div
         style={{
           backgroundImage: `url(${about_bg})`,
@@ -49,6 +50,7 @@ export default function About(){
         }}>
 
           </div>
+        </div>
         </div>
         </div>
         </div>

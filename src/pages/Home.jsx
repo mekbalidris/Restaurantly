@@ -3,6 +3,7 @@ import home_bg from '../assets/bg/home_bg.jpg';
 export default function Home() {
   return (
     <>
+    <div id='home'>
       <div
         style={{
           backgroundImage: `url(${home_bg})`,
@@ -47,6 +48,7 @@ export default function Home() {
             </button>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
