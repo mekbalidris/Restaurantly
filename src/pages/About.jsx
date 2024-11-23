@@ -1,6 +1,33 @@
+import { useState, useEffect } from 'react';
+
 import about_bg from '../assets/bg/about_bg.jpg'
 
 export default function About(){
+
+    const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+    const [responsiveAbout, setResponsiveAbout] = useState("0");
+
+    useEffect(() => {
+    const handleinnerwidth = () => {
+      setInnerWidth(window.innerWidth);
+
+      if(window.innerWidth < 510){
+        setResponsiveAbout("230vh");
+      }
+      else if(window.innerWidth < 625){
+        setResponsiveAbout("200vh");
+      }else if(window.innerWidth < 1100){
+        setResponsiveAbout("180vh");
+      }
+    }
+
+
+    window.addEventListener('resize', handleinnerwidth);
+
+    return () => {
+      window.removeEventListener('resize', handleinnerwidth);
+    }
+  }, [])
 
     return(
         <>
@@ -10,7 +37,7 @@ export default function About(){
           backgroundImage: `url(${about_bg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          height: '200vh',
+          height: innerWidth > 1100 ? '93vh' : responsiveAbout,
           width: '100%',
           position: 'relative',
         }}

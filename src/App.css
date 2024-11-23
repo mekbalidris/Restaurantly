@@ -27,7 +27,7 @@ body{
   }
 
   li:hover{
-    color: var(--hover-text-color);
+    color: var(--hover-text-color) !important;
   }
 
   nav{
