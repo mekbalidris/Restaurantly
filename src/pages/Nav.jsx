@@ -8,7 +8,7 @@ export default function Nav() {
     const handlePosition = (sectionId) => {  
         const section = document.getElementById(sectionId);  
         if (section) {  
-            section.scrollIntoView({ behavior: 'smooth' });  
+            section.scrollIntoView({ behavior: 'smooth' });
             setActivePage(sectionId);
         }  
     };
@@ -47,7 +47,7 @@ export default function Nav() {
 
         return () => {  
             window.removeEventListener('scroll', handleNavScroll);
-            window.addEventListener('scroll', handlePageScroll);  
+            window.removeEventListener('scroll', handlePageScroll);  
             window.removeEventListener('resize', handleResize);  
         };  
     }, []);  
@@ -60,15 +60,15 @@ export default function Nav() {
             ) : (  
                 <>  
                     <ul className="flex gap-5">  
-                    <li onClick={() => handlePosition('home')} style={{color:  activePage === "home" ? 'orange' : 'white' }}>Home</li>  
-                    <li onClick={() => handlePosition('about')} style={{color:  activePage === "about" ? 'orange' : 'white' }}>About</li>  
-                    <li onClick={() => handlePosition('menu')} style={{color:  activePage === "menu" ? 'orange' : 'white' }}>Menu</li>  
-                    <li onClick={() => handlePosition('specials')} style={{color:  activePage === "specials" ? 'orange' : 'white' }}>Specials</li>  
-                    <li onClick={() => handlePosition('events')} style={{color:  activePage === "events" ? 'orange' : 'white' }}>Events</li>  
-                    <li onClick={() => handlePosition('chefs')} style={{color:  activePage === "chefs" ? 'orange' : 'white' }}>Chefs</li>  
-                    <li onClick={() => handlePosition('gallery')} style={{color:  activePage === "gallery" ? 'orange' : 'white' }}>Gallery</li>  
-                    <li onClick={() => handlePosition('contact')} style={{color:  activePage === "contact" ? 'orange' : 'white' }}>Contact</li>  
-                    <li onClick={() => handlePosition('dropdown')} style={{color:  activePage === "dropdown" ? 'orange' : 'white' }}>Dropdown</li>
+                        <li onClick={() => handlePosition('home')} style={{color:  activePage === "home" ? '#FBBF24' : 'white' }}>Home</li>  
+                        <li onClick={() => handlePosition('about')} style={{color:  activePage === "about" ? '#FBBF24' : 'white' }}>About</li>  
+                        <li onClick={() => handlePosition('menu')} style={{color:  activePage === "menu" ? '#FBBF24' : 'white' }}>Menu</li>  
+                        <li onClick={() => handlePosition('specials')} style={{color:  activePage === "specials" ? '#FBBF24' : 'white' }}>Specials</li>  
+                        <li onClick={() => handlePosition('events')} style={{color:  activePage === "events" ? '#FBBF24' : 'white' }}>Events</li>  
+                        <li onClick={() => handlePosition('chefs')} style={{color:  activePage === "chefs" ? '#FBBF24' : 'white' }}>Chefs</li>  
+                        <li onClick={() => handlePosition('gallery')} style={{color:  activePage === "gallery" ? '#FBBF24' : 'white' }}>Gallery</li>  
+                        <li onClick={() => handlePosition('contact')} style={{color:  activePage === "contact" ? '#FBBF24' : 'white' }}>Contact</li>  
+                        <li onClick={() => handlePosition('dropdown')} style={{color:  activePage === "dropdown" ? '#FBBF24' : 'white' }}>Dropdown</li>
                     </ul>  
                     <div className="buttons hover:bg-opacity-100 hover:text-black">BOOK A TABLE</div>  
                 </>  
