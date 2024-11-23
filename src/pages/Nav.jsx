@@ -2,17 +2,37 @@ import { useEffect, useState } from 'react';
 
 export default function Nav() {  
     const [isMobile, setIsMobile] = useState(false);  
-    const [isScrolled, setIsScrolled] = useState(false);  
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [activePage, setActivePage] = useState("home");  
 
     const handlePosition = (sectionId) => {  
         const section = document.getElementById(sectionId);  
         if (section) {  
             section.scrollIntoView({ behavior: 'smooth' });  
+            setActivePage(sectionId);
         }  
-    };  
+    };
+    
+    const handlePageScroll = () => {
+        if(window.scrollY < window.innerHeight * 0.5){
+            setActivePage("home");
+        }else if(window.scrollY < window.innerHeight * 1.5){
+            setActivePage("about");
+        }else if(window.scrollY < window.innerHeight * 2.5){
+            setActivePage("menu");
+        }else if(window.scrollY < window.innerHeight * 3.5){
+            setActivePage("specials");
+        }else if(window.scrollY < window.innerHeight * 4.5){
+            setActivePage("events");
+        }else if(window.scrollY < window.innerHeight * 5.5){
+            setActivePage("chefs");
+        }else if(window.scrollY < window.innerHeight * 6.5){
+            setActivePage("gallery");
+        }
+    };
 
     const handleNavScroll = () => {  
-        setIsScrolled(window.scrollY > window.innerHeight * 0.3);  
+        setIsScrolled(window.scrollY > window.innerHeight * 0.3);
     };  
 
     const handleResize = () => {  
@@ -20,12 +40,14 @@ export default function Nav() {
     };  
 
     useEffect(() => {  
-        window.addEventListener('scroll', handleNavScroll);  
+        window.addEventListener('scroll', handleNavScroll);
+        window.addEventListener('scroll', handlePageScroll);  
         window.addEventListener('resize', handleResize);  
         handleResize(); // Check initial size on mount  
 
         return () => {  
-            window.removeEventListener('scroll', handleNavScroll);  
+            window.removeEventListener('scroll', handleNavScroll);
+            window.addEventListener('scroll', handlePageScroll);  
             window.removeEventListener('resize', handleResize);  
         };  
     }, []);  
@@ -38,15 +60,15 @@ export default function Nav() {
             ) : (  
                 <>  
                     <ul className="flex gap-5">  
-                    <li onClick={() => handlePosition('home')}>Home</li>  
-                    <li onClick={() => handlePosition('about')}>About</li>  
-                    <li onClick={() => handlePosition('menu')}>Menu</li>  
-                    <li onClick={() => handlePosition('specials')}>Specials</li>  
-                    <li onClick={() => handlePosition('events')}>Events</li>  
-                    <li onClick={() => handlePosition('chefs')}>Chefs</li>  
-                    <li onClick={() => handlePosition('gallery')}>Gallery</li>  
-                    <li onClick={() => handlePosition('contact')}>Contact</li>  
-                    <li onClick={() => handlePosition('dropdown')}>Dropdown</li>
+                    <li onClick={() => handlePosition('home')} style={{color:  activePage === "home" ? 'orange' : 'white' }}>Home</li>  
+                    <li onClick={() => handlePosition('about')} style={{color:  activePage === "about" ? 'orange' : 'white' }}>About</li>  
+                    <li onClick={() => handlePosition('menu')} style={{color:  activePage === "menu" ? 'orange' : 'white' }}>Menu</li>  
+                    <li onClick={() => handlePosition('specials')} style={{color:  activePage === "specials" ? 'orange' : 'white' }}>Specials</li>  
+                    <li onClick={() => handlePosition('events')} style={{color:  activePage === "events" ? 'orange' : 'white' }}>Events</li>  
+                    <li onClick={() => handlePosition('chefs')} style={{color:  activePage === "chefs" ? 'orange' : 'white' }}>Chefs</li>  
+                    <li onClick={() => handlePosition('gallery')} style={{color:  activePage === "gallery" ? 'orange' : 'white' }}>Gallery</li>  
+                    <li onClick={() => handlePosition('contact')} style={{color:  activePage === "contact" ? 'orange' : 'white' }}>Contact</li>  
+                    <li onClick={() => handlePosition('dropdown')} style={{color:  activePage === "dropdown" ? 'orange' : 'white' }}>Dropdown</li>
                     </ul>  
                     <div className="buttons hover:bg-opacity-100 hover:text-black">BOOK A TABLE</div>  
                 </>  
