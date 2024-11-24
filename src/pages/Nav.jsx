@@ -56,7 +56,7 @@ export default function Nav() {
             window.removeEventListener('scroll', handlePageScroll);  
             window.removeEventListener('resize', handleResize);  
         };  
-    }, []);  
+    }, );  
 
     return (  
         <nav className={`transition duration-500 ${isScrolled ? 'bg-black bg-opacity-100' : 'bg-black bg-opacity-50'}`}>  
