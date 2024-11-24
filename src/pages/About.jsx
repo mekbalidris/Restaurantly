@@ -37,7 +37,7 @@ export default function About(){
           backgroundImage: `url(${about_bg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          height: innerWidth > 1100 ? '93vh' : responsiveAbout,
+          height: innerWidth > 1100 ? '100vh' : responsiveAbout,
           width: '100%',
           position: 'relative',
         }}
@@ -80,6 +80,9 @@ export default function About(){
         </div>
         </div>
         </div>
+        </div>
+        <div className='h-3/6 bg-[#0C0B09] p-8'>
+        
         </div>
         </>
     )

@@ -56,10 +56,11 @@ export default function Nav() {
             window.removeEventListener('scroll', handlePageScroll);  
             window.removeEventListener('resize', handleResize);  
         };  
-    }, );  
+    },);  
+
 
     return (  
-        <nav className={`transition duration-500 ${isScrolled ? 'bg-black bg-opacity-100' : 'bg-black bg-opacity-50'}`}>  
+        <nav className={`transition duration-500 ${isScrolled ? 'bg-[#0C0B09] bg-opacity-100 border-b-2 border-[#d4a373]' : 'bg-[#0C0B09] bg-opacity-50'}`}>  
             <div className="title">Restaurantly</div>  
             {isMobile ? (  
                 <div>hamburger</div>  
