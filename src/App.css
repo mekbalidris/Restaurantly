@@ -5,6 +5,7 @@
 :root{
   --hover-text-color: #d4a373;
   --main-color: #0C0B09;
+  --mainbg-color: #29261f;
 }
 
 body{
@@ -19,6 +20,13 @@ body{
   font-weight: 700;
   font-size: x-large;
   color: var(--hover-text-color);
+}
+
+.subtitle{
+  font-family: 'Poppins';
+  font-weight: 700;
+  font-size: x-large;
+  color: white;
 }
 
 @layer components{
