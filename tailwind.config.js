@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        'mainbg': '#6c757d', 
+        'mainbg': '#0C0B09', 
+        'secondbg' : '#151412',
+        'golden' : '#d4a373'
       },
       screens:{
         lg: '1100px',

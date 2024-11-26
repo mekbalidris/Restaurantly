@@ -23,10 +23,9 @@ body{
 }
 
 .subtitle{
-  font-family: 'Poppins';
+  font-family: 'Playfair Display';
   font-weight: 700;
   font-size: x-large;
-  color: white;
 }
 
 @layer components{

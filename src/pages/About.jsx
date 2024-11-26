@@ -81,23 +81,23 @@ export default function About(){
         </div>
         </div>
         </div>
-        <div className='h-3/6 bg-[#0C0B09] p-8 flex flex-col justify-center'>
+        <div className='h-3/6 bg-mainbg p-8 flex flex-col justify-center'>
             <div>WHY US</div>
             <div className='title text-7xl'>Why Choose Our Restaurant</div>
             
             <div className='flex flex-row justify-center flex-wrap flex-shrink gap-2 mt-28 w-100'>
-              <div className='flex gap-6 flex-col h-64 w-17 bg-mainbg'>
-              <div className='subtitle'>01</div>
+              <div className='flex gap-6 flex-col h-64 w-17 bg-secondbg'>
+              <div className='subtitle text-golden'>01</div>
               <div className='subtitle text-white'>this is a subtitle</div>
               <div><p>Ea nostrud cillum fugiat cillum amet esse eu. Eu aute dolor duis dolore exercitation irure dolore aliquip.</p></div>
               </div>   
-              <div className='flex gap-6 flex-col h-64 w-17 bg-orange-950'>
-              <div className='subtitle'>02</div>
+              <div className='flex gap-6 flex-col h-64 w-17 bg-secondbg'>
+              <div className='subtitle text-golden'>02</div>
               <div className='subtitle text-white'>this is a subtitle</div>
               <div><p>Pariatur exercitation exercitation ipsum laboris tempor ea aliquip proident Lorem in. Aliqua labore occaecat in aliquip pariatur.</p></div>
               </div> 
-              <div className='flex gap-6 flex-col h-64 w-17 bg-orange-950'>
-              <div className='subtitle'>03</div>
+              <div className='flex gap-6 flex-col h-64 w-17 bg-secondbg'>
+              <div className='subtitle text-golden'>03</div>
               <div className='subtitle text-white'>this is a subtitle</div>
               <div><p>Incididunt ullamco irure enim Lorem tempor nostrud esse et et cillum laborum eiusmod consequat.</p></div>
               </div>  
