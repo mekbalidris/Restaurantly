@@ -81,23 +81,29 @@ export default function About(){
         </div>
         </div>
         </div>
-        <div className='h-3/6 bg-mainbg p-8 flex flex-col justify-center'>
-            <div>WHY US</div>
-            <div className='title text-7xl'>Why Choose Our Restaurant</div>
-            
-            <div className='flex flex-row justify-center flex-wrap flex-shrink gap-2 mt-28 w-100'>
-              <div className='flex gap-6 flex-col h-64 w-17 bg-secondbg'>
-              <div className='subtitle text-golden'>01</div>
+        <div className='bg-mainbg p-1 flex flex-col justify-center h-screen'>
+
+        <div className='pl-3 ml-105'>
+        <div className='flex flex-row items-center'>
+            <span className='text-gray-500'>WHY US</span>
+            <div className='bg-golden' style={{ width: "150px", height: "1px", margin: "0 10px" }} />
+        </div>
+            <div className='title text-10'>Why Choose Our Restaurant</div>
+        </div>
+
+            <div className="flex flex-row justify-center items-center flex-wrap gap-2 mt-12 w-full">
+            <div className='flex gap-6 flex-col h-70 w-17 p-6 bg-secondbg justify-center'>
+              <div className='subtitle text-golden font-poppins'>01</div>
               <div className='subtitle text-white'>this is a subtitle</div>
               <div><p>Ea nostrud cillum fugiat cillum amet esse eu. Eu aute dolor duis dolore exercitation irure dolore aliquip.</p></div>
               </div>   
-              <div className='flex gap-6 flex-col h-64 w-17 bg-secondbg'>
-              <div className='subtitle text-golden'>02</div>
+              <div className='flex gap-6 flex-col h-70 w-17 p-6 bg-secondbg justify-center'>
+              <div className='subtitle text-golden font-poppins'>02</div>
               <div className='subtitle text-white'>this is a subtitle</div>
               <div><p>Pariatur exercitation exercitation ipsum laboris tempor ea aliquip proident Lorem in. Aliqua labore occaecat in aliquip pariatur.</p></div>
               </div> 
-              <div className='flex gap-6 flex-col h-64 w-17 bg-secondbg'>
-              <div className='subtitle text-golden'>03</div>
+              <div className='flex gap-6 flex-col h-70 w-17 p-6 bg-secondbg justify-center'>
+              <div className='subtitle text-golden font-poppins'>03</div>
               <div className='subtitle text-white'>this is a subtitle</div>
               <div><p>Incididunt ullamco irure enim Lorem tempor nostrud esse et et cillum laborum eiusmod consequat.</p></div>
               </div>  

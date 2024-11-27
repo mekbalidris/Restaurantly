@@ -61,7 +61,7 @@ export default function Nav() {
 
     return (  
         <nav className={`transition duration-500 ${isScrolled ? 'bg-[#0C0B09] bg-opacity-100 border-b-2 border-[#d4a373]' : 'bg-[#0C0B09] bg-opacity-50'}`}>  
-            <div className="title">Restaurantly</div>  
+            <div className="title text-5">Restaurantly</div>  
             {isMobile ? (  
                 <div>hamburger</div>  
             ) : (  

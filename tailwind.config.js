@@ -19,11 +19,11 @@ export default {
         '100': '100%',
         '80' : '80%',
         '70' : '500px',
-        '17' : '21rem'
+        '17' : '23rem'
       },
       height:{
         '100' : '100%',
-        '70' : '400px'
+        '70' : '18rem'
       },
       gap:{
         '2' : '2%',
@@ -33,6 +33,13 @@ export default {
         playfair: ["Playfair Display"],
         poppins: ['Poppins'],
       },
+      fontSize:{
+        '5' : '2rem',
+        '10' : '2.2rem'
+      },
+      margin:{
+        '105' : '3%',
+      }
     },
   },
   plugins: [],
