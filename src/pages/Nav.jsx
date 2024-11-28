@@ -42,7 +42,7 @@ export default function Nav() {
     };  
 
     const handleResize = () => {  
-        setIsMobile(window.innerWidth < 1100);  
+        setIsMobile(window.innerWidth < 1170);  
     };  
 
     useEffect(() => {  
