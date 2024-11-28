@@ -1,5 +1,6 @@
 ![image](https://github.com/user-attachments/assets/c757b31c-44f8-48fe-a1bf-04fbb12e3ffa)
-![image](https://github.com/user-attachments/assets/7dcd525d-c321-4719-93c6-2b9b7c11b9f8)
+![Screenshot 2024-11-28 143616](https://github.com/user-attachments/assets/cfdefa6b-8ada-4412-8f6a-60b94f1c729a)
+![Screenshot 2024-11-28 143527](https://github.com/user-attachments/assets/76e11946-341a-4187-894b-c2ca7091d3ec)
 
 # Restaurant Website  
 
