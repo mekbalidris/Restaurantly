@@ -2,7 +2,7 @@ import './App.css'
 import Nav from './pages/Nav'
 import Home from './pages/Home'
 import About from './pages/About'
-import UnderNav from './pages/UnderNav'
+import UnderAbout from './pages/UnderAbout'
 import Specials from './pages/Specials'
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
       <Nav />
       <Home />
       <About />
-      <UnderNav/>
+      <UnderAbout />
       <Specials />
     
       </div>

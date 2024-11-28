@@ -1,6 +1,6 @@
 import fire from "../assets/videos/fire.mp4";
 
-export default function UnderNav(){
+export default function UnderAbout(){
 
     return(
         <>
