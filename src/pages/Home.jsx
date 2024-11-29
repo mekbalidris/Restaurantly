@@ -1,6 +1,20 @@
 import home_bg from '../assets/bg/home_bg.jpg';
+import "aos/dist/aos.css";
+import AOS from "aos";
+import { useEffect } from "react";
 
 export default function Home() {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,         // Default duration for animations (800ms)
+      easing: 'ease-in-out', // Default easing function
+      once: true,            // Whether animation runs only once (true) or on every scroll (false)
+      //offset: 200,           // Default offset in pixels from the trigger point
+      //delay: 100             // Default delay before animations start
+  });
+  }, []);
+
   return (
     <>
     <div id='home'>
@@ -28,7 +42,7 @@ export default function Home() {
         />
 
         <div
-          className="flex flex-col justify-center items-center text-center z-10 relative h-full"
+          className="flex flex-col justify-center items-center text-center z-10 relative h-full" data-aos="fade-up"
         >
           <h1 className="text-white text-4xl font-bold mb-4">
             Welcome To{' '}

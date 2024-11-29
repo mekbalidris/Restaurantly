@@ -68,4 +68,12 @@ body{
   .sideimage{
     @apply w-80 border-8 border-neutral-700 transition duration-500 hover:scale-105 lg:w-70 h-70;
   }
+  
+  .cardabout{
+    @apply relative flex gap-6 flex-col w-80 p-6 bg-secondbg justify-center overflow-hidden lg1:h-70 lg1:w-17;
+  }
+
+  .firevideo{
+    @apply absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100;
+  }
 }

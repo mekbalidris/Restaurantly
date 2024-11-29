@@ -1,6 +1,13 @@
 import fire from "../assets/videos/fire.mp4";
+import "aos/dist/aos.css";
+import AOS from "aos";
+import { useEffect } from "react";
 
 export default function UnderAbout(){
+
+    useEffect(() => {
+      AOS.init({ duration: 1000 });
+    }, []);
 
     return(
         <>
@@ -18,8 +25,8 @@ export default function UnderAbout(){
 
         <div className="flex flex-row justify-center items-center flex-wrap gap-4 mt-12 w-full lg1:gap-2">  
         
-        <div className='relative flex gap-6 flex-col w-80 p-6 bg-secondbg justify-center overflow-hidden group lg1:h-70 lg1:w-17'>   
-        <video className='absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100' autoPlay muted loop>  
+        <div className='cardabout group' data-aos="fade-up">   
+        <video className='firevideo group' autoPlay muted loop>  
         <source src={fire} type='video/mp4' />  
             Your browser does not support the video tag.  
           </video>  
@@ -30,8 +37,8 @@ export default function UnderAbout(){
           </div>  
         </div>  
       
-        <div className='relative flex gap-6 flex-col w-80 p-6 bg-secondbg justify-center overflow-hidden group lg1:h-70 lg1:w-17'>   
-        <video className='absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100' autoPlay muted loop>  
+        <div className='cardabout group' data-aos="fade-up" data-aos-delay="300">   
+        <video className='firevideo group' autoPlay muted loop>  
         <source src={fire} type='video/mp4' />  
             Your browser does not support the video tag.  
           </video>  
@@ -42,8 +49,8 @@ export default function UnderAbout(){
           </div>  
         </div>  
       
-        <div className='relative flex gap-6 flex-col w-80 p-6 bg-secondbg justify-center overflow-hidden group lg1:h-70 lg1:w-17'>   
-        <video className='absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100' autoPlay muted loop>  
+        <div className='cardabout group' data-aos="fade-up" data-aos-delay="600">   
+        <video className='firevideo group' autoPlay muted loop>  
         <source src={fire} type='video/mp4' />  
             Your browser does not support the video tag.  
           </video>  

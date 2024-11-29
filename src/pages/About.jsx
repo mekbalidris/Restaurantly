@@ -1,8 +1,21 @@
-import { useState, useEffect} from 'react';
+import { useState} from 'react';
+import "aos/dist/aos.css";
+import AOS from "aos";
+import { useEffect } from "react";
 
 import about_bg from '../assets/bg/about_bg.jpg'
 
 export default function About(){
+
+    useEffect(() => {
+      AOS.init({
+        duration: 1000,         // Default duration for animations (800ms)
+        easing: 'ease-in-out', // Default easing function
+        once: true,            // Whether animation runs only once (true) or on every scroll (false)
+        //offset: 200,           // Default offset in pixels from the trigger point
+        //delay: 100             // Default delay before animations start
+    });
+    }, []);
 
     const [innerWidth, setInnerWidth] = useState(window.innerWidth);
     const [responsiveAbout, setResponsiveAbout] = useState("0");
@@ -55,7 +68,7 @@ export default function About(){
           }}
         />
         <div>
-        <div className='flex flex-wrap-reverse justify-center items-center h-full gap-2 flex-row'>
+        <div className='flex flex-wrap-reverse justify-center items-center h-full gap-2 flex-row relative z-10' data-aos="fade-up">
           <div className='flex w-full p-7 flex-col justify-center items-center text-left z-10 lg:w-1/2'>
             <h2 className='mt-20 text-left w-full'>Culpa cupidatat occaecat</h2>
             <p className='mt-3'>Sint minim anim eu voluptate in ut id tempor est aute in do quis minim. Ad velit aliqua occaecat commodo est commodo eiusmod sunt.</p>
