@@ -1,4 +1,5 @@
-import Food from '../pages/Menu'
+import Food from "../sidecomponents/food";
+import about_bg from "../assets/bg/about_bg.jpg"
 
 export default function Menu(){
 
@@ -19,7 +20,7 @@ export default function Menu(){
         </div>
 
         <div className="bg-secondbg">
-            <Food></Food>
+            <Food iamge={about_bg} title="bread" description="Lorem ipsume" price="9.99" ></Food>
         </div>
         </>
     )
