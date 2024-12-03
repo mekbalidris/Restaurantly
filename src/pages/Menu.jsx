@@ -1,8 +1,12 @@
 import Food from "../sidecomponents/Food.jsx";
-
-import chicken from "../assets/dishes/chicken.png"
+import chicken from "../assets/dishes/chicken.png";
+import { useState } from "react";
 
 export default function Menu(){
+
+    const {category, setCategory} = useState("All");
+
+    const categories = ["All", "Starters", "Salads", "Speciality"];
 
     return(
         <>
@@ -18,9 +22,15 @@ export default function Menu(){
         </div>
         </div>
         
+        <div className="flex flex-row justify-center align-middle gap-6 mt-14">
+            <div>All</div>
+            <div>Starters</div>
+            <div>Salads</div>
+            <div>Specialty</div>
         </div>
 
         <div className="bg-secondbg grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+        
         <Food 
           image={chicken}
           title="Chicken" 
@@ -46,6 +56,8 @@ export default function Menu(){
           price="9.99" 
         />
       </div>
-        </>
+
+      </div>
+    </>
     )
 }

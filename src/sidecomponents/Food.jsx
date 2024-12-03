@@ -15,7 +15,7 @@ export default function Food({ image, title, description, price }) {
       </div>
 
       <div className="text-right">
-        <span className="text-xl font-bold text-yellow-400">${price}</span>
+        <span className="text-xl font-semibold text-yellow-400">${price}</span>
       </div>
     </div>
   );
