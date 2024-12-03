@@ -1,5 +1,6 @@
-import Food from "../sidecomponents/food";
-import about_bg from "../assets/bg/about_bg.jpg"
+import Food from "../sidecomponents/Food.jsx";
+
+import chicken from "../assets/dishes/chicken.png"
 
 export default function Menu(){
 
@@ -19,9 +20,32 @@ export default function Menu(){
         
         </div>
 
-        <div className="bg-secondbg">
-            <Food iamge={about_bg} title="bread" description="Lorem ipsume" price="9.99" ></Food>
-        </div>
+        <div className="bg-secondbg grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+        <Food 
+          image={chicken}
+          title="Chicken" 
+          description="Lorem ipsum delicious chicken" 
+          price="9.99" 
+        />
+        <Food 
+          image={chicken} 
+          title="Chicken" 
+          description="Lorem ipsum delicious chicken" 
+          price="9.99" 
+        />
+        <Food 
+          image={chicken} 
+          title="Chicken" 
+          description="Lorem ipsum delicious chicken" 
+          price="9.99" 
+        />
+        <Food 
+          image={chicken}
+          title="Chicken" 
+          description="Lorem ipsum delicious chicken" 
+          price="9.99" 
+        />
+      </div>
         </>
     )
 }

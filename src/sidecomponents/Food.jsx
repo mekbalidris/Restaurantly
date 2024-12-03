@@ -1,13 +1,15 @@
-import React from 'react';
 
-// Food component to display a food item with picture, price, title, and description
+
 export default function Food({ image, title, description, price }) {
   return (
-    <div className="flex flex-col sm:flex-row items-center bg-gray-800 p-4 rounded-lg mb-4">
+    <div className="flex flex-row w-full lg:w-full xl:w-[calc(50%-1rem)] p-4 items-center bg-secondbg">
+      <img 
+        src={image} 
+        alt={title} 
+        className="h-24 w-24 object-cover mr-4" 
+      />
 
-      <img src={image} alt={title} className="w-20 h-20 rounded-full mr-4" />
-
-      <div className="flex-1">
+      <div className="flex-grow">
         <h3 className="text-xl font-bold text-white">{title}</h3>
         <p className="text-sm text-gray-400">{description}</p>
       </div>
