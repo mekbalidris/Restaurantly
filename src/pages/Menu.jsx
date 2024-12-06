@@ -1,5 +1,8 @@
 import Food from "../sidecomponents/Food.jsx";
 import chicken from "../assets/dishes/chicken.png";
+import khodra from "../assets/dishes/khodra.png";
+import ma9aron from "../assets/dishes/ma9aron.png";
+import ma9aronlux from "../assets/dishes/ma9aronlux.png";
 import { useState } from "react";
 
 export default function Menu() {
@@ -12,9 +15,9 @@ export default function Menu() {
   // Food items data
   const foodItems = [
     { id: 1, image: chicken, title: "Chicken Starter", description: "Lorem ipsum delicious starter chicken", price: "9.99", category: "Starters" },
-    { id: 2, image: chicken, title: "Chicken Salad", description: "Fresh salad with grilled chicken", price: "8.99", category: "Salads" },
-    { id: 3, image: chicken, title: "Special Chicken Dish", description: "Our specialty chicken dish", price: "15.99", category: "Specialty" },
-    { id: 4, image: chicken, title: "Chicken Platter", description: "Delicious chicken platter", price: "12.99", category: "All" },
+    { id: 2, image: khodra, title: "Chicken Salad", description: "Fresh salad with grilled chicken", price: "8.99", category: "Salads" },
+    { id: 3, image: ma9aron, title: "Special Chicken Dish", description: "Our specialty chicken dish", price: "15.99", category: "Specialty" },
+    { id: 4, image: ma9aronlux, title: "Chicken Platter", description: "Delicious chicken platter", price: "12.99", category: "All" },
   ];
 
   // Filtered food items based on the selected category
@@ -23,6 +26,10 @@ export default function Menu() {
     : foodItems.filter((item) => item.category === category);
 
   return (
+
+    <>
+    <div id="menu">
+
     <div className="bg-secondbg flex flex-col justify-center h-full w-full">
       {/* Menu Title */}
       <div className="flex flex-row mt-8">
@@ -61,5 +68,8 @@ export default function Menu() {
         ))}
       </div>
     </div>
+    </div>
+
+    </>
   );
 }

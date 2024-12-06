@@ -21,17 +21,17 @@ export default function Nav() {
             setTimeout(() => {
         if(window.scrollY < window.innerHeight * 0.5){
             setActivePage("home");
-        }else if(window.scrollY < window.innerHeight * 1.5){
-            setActivePage("about");
         }else if(window.scrollY < window.innerHeight * 2.5){
-            setActivePage("menu");
+            setActivePage("about");
         }else if(window.scrollY < window.innerHeight * 3.5){
-            setActivePage("specials");
+            setActivePage("menu");
         }else if(window.scrollY < window.innerHeight * 4.5){
-            setActivePage("events");
+            setActivePage("specials");
         }else if(window.scrollY < window.innerHeight * 5.5){
-            setActivePage("chefs");
+            setActivePage("events");
         }else if(window.scrollY < window.innerHeight * 6.5){
+            setActivePage("chefs");
+        }else if(window.scrollY < window.innerHeight * 7.5){
             setActivePage("gallery");
         }
     }, 2000);
