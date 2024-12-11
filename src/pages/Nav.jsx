@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';  
 
 export default function Nav() {  
@@ -66,7 +67,8 @@ export default function Nav() {
                 <div>hamburger</div>  
             ) : (  
                 <>  
-                    <ul className="flex gap-5">  
+                <Link to="/">
+                    <ul className="flex gap-5">
                         <li onClick={() => handlePosition('home')} style={{color:  activePage === "home" ? '#d4a373' : 'white' }}>Home</li>  
                         <li onClick={() => handlePosition('about')} style={{color:  activePage === "about" ? '#d4a373' : 'white' }}>About</li>  
                         <li onClick={() => handlePosition('menu')} style={{color:  activePage === "menu" ? '#d4a373' : 'white' }}>Menu</li>  
@@ -77,7 +79,15 @@ export default function Nav() {
                         <li onClick={() => handlePosition('contact')} style={{color:  activePage === "contact" ? '#d4a373' : 'white' }}>Contact</li>  
                         <li onClick={() => handlePosition('dropdown')} style={{color:  activePage === "dropdown" ? '#d4a373' : 'white' }}>Dropdown</li>
                     </ul>  
-                    <div className="buttons hover:bg-opacity-100 hover:text-black">BOOK A TABLE</div>  
+                </Link>
+
+                <Link
+                to={localStorage.getItem("accessToken") ? "/book-table" : "/accessaccount"}>
+                <div className="buttons hover:bg-opacity-100 hover:text-black">
+                    BOOK A TABLE
+                </div>
+                </Link>
+            
                 </>  
             )}  
         </nav>  
