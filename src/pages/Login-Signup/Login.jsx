@@ -20,7 +20,7 @@ export default function Signup() {
         e.preventDefault();
 
         try {
-            const response = await axios.post("http://127.0.0.1:8000/api/signup", formData);
+            const response = await axios.post("http://127.0.0.1:8000/api/login", formData);
 
             // Store the token in localStorage
             localStorage.setItem("accessToken", response.data.access_token);
@@ -69,7 +69,7 @@ export default function Signup() {
                     type="submit"
                     className="bg-orange-500 text-white px-4 py-2 mt-4 hover:bg-orange-600"
                 >
-                    Sign Up
+                    Login
                 </button>
             </form>
         </div>

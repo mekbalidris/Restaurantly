@@ -6,6 +6,7 @@ export default function Nav() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [activePage, setActivePage] = useState("home");  
     const [teleporting, setTeleporting] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     const handlePosition = (sectionId) => {  
         const section = document.getElementById(sectionId);  
@@ -47,6 +48,9 @@ export default function Nav() {
     };  
 
     useEffect(() => {  
+        const token = localStorage.getItem("accessToken");
+        setIsAuthenticated(!!token);
+
         window.addEventListener('scroll', handleNavScroll);
         window.addEventListener('scroll', handlePageScroll);  
         window.addEventListener('resize', handleResize);  
@@ -57,7 +61,14 @@ export default function Nav() {
             window.removeEventListener('scroll', handlePageScroll);  
             window.removeEventListener('resize', handleResize);  
         };  
-    },);  
+    }, []);  
+
+
+    const handleLogout = () => {
+        localStorage.removeItem("accessToken");
+        setIsAuthenticated(false);
+        window.location.reload();
+    };
 
 
     return (  
@@ -81,12 +92,31 @@ export default function Nav() {
                     </ul>  
                 </Link>
 
-                <Link
-                to={localStorage.getItem("accessToken") ? "/book-table" : "/accessaccount"}>
-                <div className="buttons hover:bg-opacity-100 hover:text-black">
-                    BOOK A TABLE
-                </div>
-                </Link>
+                {isAuthenticated ? (
+                    <>
+                      <Link to="/book-table">
+                        <div className="buttons hover:bg-opacity-100 hover:text-black">
+                          BOOK A TABLE
+                        </div>
+                      </Link>
+                      <div className="buttons hover:bg-opacity-100 hover:text-black" onClick={handleLogout}>
+                        LOG OUT
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <Link to="/signup">
+                        <div className="buttons hover:bg-opacity-100 hover:text-black">
+                          SIGN UP
+                        </div>
+                      </Link>
+                      <Link to="/login">
+                        <div className="buttons hover:bg-opacity-100 hover:text-black">
+                          LOGIN
+                        </div>
+                      </Link>
+                    </>
+                  )}
             
                 </>  
             )}  

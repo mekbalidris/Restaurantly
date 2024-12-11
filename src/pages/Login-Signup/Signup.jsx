@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
     const [formData, setFormData] = useState({
@@ -16,6 +17,8 @@ export default function Signup() {
         setFormData({ ...formData, [name]: value });
     };
 
+    const navigate = useNavigate();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -30,6 +33,8 @@ export default function Signup() {
                 password_confirmation: "",
             });
             setError({});
+
+            navigate("/");
         } catch (error) {
             console.error("Error during registration:", error.response?.data);
             setError(error.response?.data.errors || {});
