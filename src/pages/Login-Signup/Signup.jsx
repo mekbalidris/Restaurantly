@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 
 export default function Signup({setisAuthenticated, isAuthenticated, token}) {
     const [formData, setFormData] = useState({
@@ -42,6 +42,12 @@ export default function Signup({setisAuthenticated, isAuthenticated, token}) {
             setError(error.response?.data.errors || {});
         }
     };
+
+    useEffect(() => {
+        if(isAuthenticated){
+            navigate('/');
+        }
+    },[isAuthenticated, navigate])
 
     return (
         <form onSubmit={handleSubmit} className="flex flex-col justify-center gap-4 mt-32">

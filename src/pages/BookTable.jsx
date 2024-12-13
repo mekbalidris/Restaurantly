@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 
 export default function BookTable({isAuthenticated}) {
     const navigate = useNavigate();
@@ -23,6 +23,12 @@ export default function BookTable({isAuthenticated}) {
         e.preventDefault();
         console.log("Booking Data:", formData);
     };
+
+    useEffect(() => {
+        if(!isAuthenticated){
+            navigate("/accessaccount");
+        }
+    },[navigate, isAuthenticated])
 
     return (
         <form onSubmit={handleSubmit} className="flex flex-col justify-center gap-4 mt-32">

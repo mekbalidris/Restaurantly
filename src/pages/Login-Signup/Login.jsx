@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Signup({setisAuthenticated, isAuthenticated, token}) {
+export default function Signup({setIsAuthenticated, isAuthenticated, token}) {
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -23,7 +23,7 @@ export default function Signup({setisAuthenticated, isAuthenticated, token}) {
             const response = await axios.post("http://127.0.0.1:8000/api/login", formData);
             localStorage.setItem("accessToken", response.data.access_token);
             token = response.data.access_token;
-            setisAuthenticated(true);
+            setIsAuthenticated(true);
 
             console.log("Loged in successfully:", response.data);
             navigate("/");
@@ -32,6 +32,12 @@ export default function Signup({setisAuthenticated, isAuthenticated, token}) {
             setError(error.response?.data.errors || {});
         }
     };
+
+    useEffect(() => {
+        if(isAuthenticated){
+            navigate('/');
+        }
+    },[isAuthenticated, navigate])
 
     return (
         <div className="flex flex-col justify-center items-center mt-32">
