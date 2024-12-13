@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Signup() {
+export default function Signup({setisAuthenticated, isAuthenticated, token}) {
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -21,14 +21,12 @@ export default function Signup() {
 
         try {
             const response = await axios.post("http://127.0.0.1:8000/api/login", formData);
-
-            // Store the token in localStorage
             localStorage.setItem("accessToken", response.data.access_token);
+            token = response.data.access_token;
+            setisAuthenticated(true);
 
-            console.log("Signed up successfully:", response.data);
-
-            // Redirect to the BookTable page after successful signup
-            navigate("/book-table");
+            console.log("Loged in successfully:", response.data);
+            navigate("/");
         } catch (error) {
             console.error("Error during signup:", error.response?.data);
             setError(error.response?.data.errors || {});

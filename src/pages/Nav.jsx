@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';  
 
-export default function Nav() {  
+export default function Nav({setIsAuthenticated, isAuthenticated}) {  
     const [isMobile, setIsMobile] = useState(false);  
     const [isScrolled, setIsScrolled] = useState(false);
     const [activePage, setActivePage] = useState("home");  
     const [teleporting, setTeleporting] = useState(false);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     const handlePosition = (sectionId) => {  
         const section = document.getElementById(sectionId);  
@@ -48,8 +47,6 @@ export default function Nav() {
     };  
 
     useEffect(() => {  
-        const token = localStorage.getItem("accessToken");
-        setIsAuthenticated(!!token);
 
         window.addEventListener('scroll', handleNavScroll);
         window.addEventListener('scroll', handlePageScroll);  

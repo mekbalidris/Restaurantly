@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Signup() {
+export default function Signup({setisAuthenticated, isAuthenticated, token}) {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -25,6 +25,8 @@ export default function Signup() {
         try {
             const response = await axios.post("http://127.0.0.1:8000/api/register", formData);
             console.log("Registration Successful:", response.data);
+            token = response.data.access_token;
+            setisAuthenticated(true);
 
             setFormData({
                 name: "",

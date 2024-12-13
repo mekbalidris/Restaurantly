@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function BookTable() {
+export default function BookTable({isAuthenticated}) {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         tableNumber: "",
@@ -9,11 +9,10 @@ export default function BookTable() {
     });
 
     useEffect(() => {
-        const authStatus = localStorage.getItem("accessToken");
-        if (!authStatus) {
-            navigate("/accessaccount"); // Redirect to AccessAccount if not authenticated
+        if (!isAuthenticated) {
+            navigate("/accessaccount");
         }
-    }, [navigate]);
+    },);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
