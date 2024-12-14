@@ -91,6 +91,7 @@ export default function Nav({setIsAuthenticated, isAuthenticated}) {
 
                 {isAuthenticated ? (
                     <>
+                    <div className="flex flex-row gap-1">
                       <Link to="/book-table">
                         <div className="buttons hover:bg-opacity-100 hover:text-black">
                           BOOK A TABLE
@@ -99,9 +100,11 @@ export default function Nav({setIsAuthenticated, isAuthenticated}) {
                       <div className="buttons hover:bg-opacity-100 hover:text-black" onClick={handleLogout}>
                         LOG OUT
                       </div>
+                    </div>
                     </>
                   ) : (
                     <>
+                    <div className="flex flex-row gap-1">
                       <Link to="/signup">
                         <div className="buttons hover:bg-opacity-100 hover:text-black">
                           SIGN UP
@@ -112,6 +115,7 @@ export default function Nav({setIsAuthenticated, isAuthenticated}) {
                           LOGIN
                         </div>
                       </Link>
+                      </div>
                     </>
                   )}
             

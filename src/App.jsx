@@ -26,7 +26,7 @@ useEffect(() => {
     <>
     <Router>
     <div className="flex flex-col">
-        <Nav setIsAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated}/>
+        <Nav setIsAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated} />
         <Routes>
             <Route
                 path="/"
@@ -41,8 +41,8 @@ useEffect(() => {
             />
             <Route path="/book-table" element={<BookTable isAuthenticated={isAuthenticated} />} />
             <Route path="/accessaccount" element={<Access />} />
-            <Route path="/login" element={<Login setisAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated} token={token}/>} />
-            <Route path="/signup" element={<Signup setisAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated} token={token}/>} />
+            <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated} token={token}/>} />
+            <Route path="/signup" element={<Signup setIsAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated} token={token}/>} />
 
         </Routes>
     </div>
