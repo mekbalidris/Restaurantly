@@ -2,7 +2,7 @@
 
 export default function Food({ image, title, description, price }) {
   return (
-    <div className="flex flex-row w-full lg:w-full xl:w-[calc(50%-1rem)] p-4 items-center bg-secondbg">
+    <div className="flex flex-row w-full pt-4 pb-4 pr-[1rem] bg-secondbg">
       <img 
         src={image} 
         alt={title} 

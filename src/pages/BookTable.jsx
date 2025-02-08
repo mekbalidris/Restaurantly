@@ -105,7 +105,7 @@ export default function BookTable({ isAuthenticated }) {
                 </div>
 
                 {/* Number of People Field */}
-                <div className="w-full lg:w-auto">
+                <div className="w-full lg:w-64">
                     <label className="block font-medium mb-2">Number of People</label>
                     <input
                         type="number"

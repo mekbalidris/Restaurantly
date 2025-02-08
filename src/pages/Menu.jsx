@@ -15,9 +15,17 @@ export default function Menu() {
   // Food items data
   const foodItems = [
     { id: 1, image: chicken, title: "Chicken Starter", description: "Lorem ipsum delicious starter chicken", price: "9.99", category: "Starters" },
-    { id: 2, image: khodra, title: "Chicken Salad", description: "Fresh salad with grilled chicken", price: "8.99", category: "Salads" },
+    { id: 2, image: chicken, title: "Chicken Salad", description: "Fresh salad with grilled chicken", price: "8.99", category: "Salads" },
     { id: 3, image: ma9aron, title: "Special Chicken Dish", description: "Our specialty chicken dish", price: "15.99", category: "Specialty" },
-    { id: 4, image: ma9aronlux, title: "Chicken Platter", description: "Delicious chicken platter", price: "12.99", category: "All" },
+    { id: 6, image: ma9aronlux, title: "Chicken Platter", description: "Delicious chicken platter", price: "12.99", category: "All" },
+    { id: 7, image: chicken, title: "Chicken Starter", description: "Lorem ipsum delicious starter chicken", price: "9.99", category: "Starters" },
+    { id: 8, image: chicken, title: "Chicken Salad", description: "Fresh salad with grilled chicken", price: "8.99", category: "Salads" },
+    { id: 9, image: ma9aron, title: "Special Chicken Dish", description: "Our specialty chicken dish", price: "15.99", category: "Specialty" },
+    { id: 10, image: ma9aronlux, title: "Chicken Platter", description: "Delicious chicken platter", price: "12.99", category: "All" },
+    { id: 11, image: chicken, title: "Chicken Starter", description: "Lorem ipsum delicious starter chicken", price: "9.99", category: "Starters" },
+    { id: 12, image: chicken, title: "Chicken Salad", description: "Fresh salad with grilled chicken", price: "8.99", category: "Salads" },
+    { id: 13, image: ma9aron, title: "Special Chicken Dish", description: "Our specialty chicken dish", price: "15.99", category: "Specialty" },
+    { id: 14, image: ma9aronlux, title: "Chicken Platter", description: "Delicious chicken platter", price: "12.99", category: "All" },
   ];
 
   // Filtered food items based on the selected category
@@ -30,10 +38,10 @@ export default function Menu() {
     <>
     <div id="menu">
 
-    <div className="bg-secondbg flex flex-col justify-center h-full w-full">
+    <div className="bg-secondbg flex flex-col justify-center h-screen w-full">
       {/* Menu Title */}
-      <div className="flex flex-row mt-8">
-        <div className="pl-3 ml-105">
+      <div className="flex flex-row max-lg:mt-[15rem]">
+        <div className="pl-4 ml-105">
           <div className="flex flex-row items-center">
             <span className="text-gray-500">MENU</span>
             <div className="bg-golden" style={{ width: "150px", height: "1px", margin: "0 10px" }} />
@@ -56,8 +64,8 @@ export default function Menu() {
       </div>
 
       {/* Food Items */}
-      <div className="bg-secondbg grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
-        {filteredFoodItems.map((food) => (
+      <div className="bg-secondbg w-full pt-5 pl-3 grid grid-cols-1 lg:grid-cols-2 gap-4">
+        {filteredFoodItems.slice(0, 4).map((food) => (
           <Food
             key={food.id}
             image={food.image}

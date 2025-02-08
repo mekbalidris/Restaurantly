@@ -13,7 +13,8 @@ export default {
       },
       screens:{
         lg1: '1170px',
-        lg: '1100px',
+        me1: '440px',
+        'max-me1':{'max': '440px'},
         mid1: '510px',
         mid: '992px',
         low: '350px',
