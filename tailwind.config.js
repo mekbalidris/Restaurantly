@@ -18,6 +18,7 @@ export default {
         mid1: '510px',
         mid: '992px',
         low: '350px',
+        customer: '379px'
       },
       width:{
         '100': '100%',

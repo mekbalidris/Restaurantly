@@ -40,7 +40,7 @@ export default function Menu() {
 
     <div className="bg-secondbg flex flex-col justify-center h-screen w-full">
       {/* Menu Title */}
-      <div className="flex flex-row max-lg:mt-[15rem]">
+      <div className="flex flex-row mt-[15rem] lg:mt-[0]">
         <div className="pl-4 ml-105">
           <div className="flex flex-row items-center">
             <span className="text-gray-500">MENU</span>

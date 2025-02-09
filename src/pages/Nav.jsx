@@ -34,14 +34,10 @@ export default function Nav({ setIsAuthenticated, isAuthenticated }) {
     } else if (scrollPosition < viewportHeight * 3.5) {
       setActivePage("menu");
     } else if (scrollPosition < viewportHeight * 4.5) {
-      setActivePage("specials");
+      setActivePage("testemonials");
     } else if (scrollPosition < viewportHeight * 5.5) {
-      setActivePage("events");
+      setActivePage("map");
     } else if (scrollPosition < viewportHeight * 6.5) {
-      setActivePage("chefs");
-    } else if (scrollPosition < viewportHeight * 7.5) {
-      setActivePage("gallery");
-    } else {
       setActivePage("contact");
     }
   };
@@ -91,12 +87,8 @@ export default function Nav({ setIsAuthenticated, isAuthenticated }) {
               "home",
               "about",
               "menu",
-              "specials",
-              "events",
-              "chefs",
-              "gallery",
+              "testimonials",
               "contact",
-              "dropdown",
             ].map((page) => (
               <li
                 key={page}

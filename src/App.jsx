@@ -10,6 +10,8 @@ import Login from './pages/Login-Signup/Login';
 import Signup from './pages/Login-Signup/Signup';
 import Access from './pages/Login-Signup/Access';
 import { useEffect, useState } from 'react';
+import Testemonials from './pages/Testimonials';
+import Contact from './pages/Contact';
 
 function App() {
     
@@ -36,6 +38,8 @@ useEffect(() => {
                         <About />
                         <UnderAbout />
                         <Menu />
+                        <Testemonials />
+                        <Contact />
                     </>
                 }
             />
