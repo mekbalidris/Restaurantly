@@ -1,99 +1,74 @@
-import { useState} from 'react';
+import { useState, useEffect } from "react";
 import "aos/dist/aos.css";
 import AOS from "aos";
-import { useEffect } from "react";
+import about_bg from "../assets/bg/about_bg.jpg";
 
-import about_bg from '../assets/bg/about_bg.jpg'
-
-export default function About(){
-
-    useEffect(() => {
-      AOS.init({
-        duration: 1000,         // Default duration for animations (800ms)
-        easing: 'ease-in-out', // Default easing function
-        once: true,            // Whether animation runs only once (true) or on every scroll (false)
-        //offset: 200,           // Default offset in pixels from the trigger point
-        //delay: 100             // Default delay before animations start
+export default function About() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
     });
-    }, []);
+  }, []);
 
-    const [innerWidth, setInnerWidth] = useState(window.innerWidth);
-    const [responsiveAbout, setResponsiveAbout] = useState("0");
+  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
 
-    useEffect(() => {
-    const handleinnerwidth = () => {
-      setInnerWidth(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => setInnerWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-      if(window.innerWidth < 510){
-        setResponsiveAbout("230vh");
-      }
-      else if(window.innerWidth < 625){
-        setResponsiveAbout("200vh");
-      }else if(window.innerWidth < 1100){
-        setResponsiveAbout("180vh");
-      }
-    }
-
-
-    window.addEventListener('resize', handleinnerwidth);
-
-    return () => {
-      window.removeEventListener('resize', handleinnerwidth);
-    }
-  }, [])
-
-    return(
-        <>
-        <div id="about">
-        <div
+  return (
+    <div id="about">
+      <div
         style={{
           backgroundImage: `url(${about_bg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          height: innerWidth > 1100 ? '100vh' : responsiveAbout,
-          width: '100%',
-          position: 'relative',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
+        className="relative w-full min-h-screen lg:min-h-[100vh] md:min-h-[120vh] sm:min-h-[140vh] flex items-center"
       >
-        {/*overlay for the background*/}
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: `rgba(0, 0, 0, 0.85)`,
-            zIndex: 1,
-          }}
-        />
-        <div>
-        <div className='flex flex-wrap-reverse justify-center items-center h-full gap-2 flex-row relative z-10' data-aos="fade-up">
-          <div className='flex w-full p-7 flex-col justify-center items-center text-left z-10 lg:w-1/2'>
-            <h2 className='mt-20 text-left w-full'>Culpa cupidatat occaecat</h2>
-            <p className='mt-3'>Sint minim anim eu voluptate in ut id tempor est aute in do quis minim. Ad velit aliqua occaecat commodo est commodo eiusmod sunt.</p>
-            <p className='p1 mt-8'>&#10004; Ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <p className='p1'>&#10004; Duis aute irure dolor in reprehenderit in voluptate velit.</p>
-            <p className='p1'>&#10004; Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore
-            eu fugiat nulla pariatur.</p>
-            <p className='p1 mt-8'>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident</p>
+        {/* Overlay for the background */}
+        <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-85 z-1"></div>
+
+        <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-center gap-8 w-full max-w-6xl mx-auto px-6">
+          {/* Left Side - Text Content */}
+          <div className="w-full lg:w-1/2 text-white flex flex-col justify-center text-center lg:text-left">
+            <h2 className="text-2xl md:text-3xl font-bold mt-10 lg:mt-0">
+              Culpa cupidatat occaecat
+            </h2>
+            <p className="mt-4 text-gray-300">
+              Sint minim anim eu voluptate in ut id tempor est aute in do quis
+              minim. Ad velit aliqua occaecat commodo est commodo eiusmod sunt.
+            </p>
+            <div className="mt-6 space-y-2 text-gray-300">
+              <p>✔️ Ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p>✔️ Duis aute irure dolor in reprehenderit in voluptate velit.</p>
+              <p>
+                ✔️ Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                aute irure dolor in reprehenderit in voluptate trideta storacalaperda
+                mastiro dolore eu fugiat nulla pariatur.
+              </p>
+            </div>
+            <p className="mt-6 text-gray-300">
+              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident.
+            </p>
           </div>
 
-          <div 
-            className='sideimage'
+          {/* Right Side - Image */}
+          <div
+            className="w-full lg:w-1/2 h-64 md:h-96 bg-cover bg-center rounded-lg shadow-lg"
             style={{
-            marginTop: '6rem',
-            backgroundImage: `url(${about_bg})`,
-            backgroundSize: 'cover',
-            zIndex: '10',
-        }}>
-
-          </div>
+              backgroundImage: `url(${about_bg})`,
+            }}
+          ></div>
         </div>
-        </div>
-        </div>
-        </div>
-        </>
-    )
+      </div>
+    </div>
+  );
 }

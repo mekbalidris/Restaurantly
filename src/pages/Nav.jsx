@@ -10,11 +10,10 @@ export default function Nav({ setIsAuthenticated, isAuthenticated }) {
   const handlePosition = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      setTeleporting(true); // Disable scroll-based detection temporarily
+      setTeleporting(true);
       setActivePage(sectionId);
       section.scrollIntoView({ behavior: "smooth" });
 
-      // Reactivate scroll detection after some time
       setTimeout(() => {
         setTeleporting(false);
       }, 1000);
@@ -22,7 +21,7 @@ export default function Nav({ setIsAuthenticated, isAuthenticated }) {
   };
 
   const handlePageScroll = () => {
-    if (teleporting) return; // Prevent scroll-based changes while teleporting
+    if (teleporting) return;
 
     const scrollPosition = window.scrollY;
     const viewportHeight = window.innerHeight;
@@ -34,10 +33,8 @@ export default function Nav({ setIsAuthenticated, isAuthenticated }) {
     } else if (scrollPosition < viewportHeight * 3.5) {
       setActivePage("menu");
     } else if (scrollPosition < viewportHeight * 4.5) {
-      setActivePage("testemonials");
-    } else if (scrollPosition < viewportHeight * 5.5) {
-      setActivePage("map");
-    } else if (scrollPosition < viewportHeight * 6.5) {
+      setActivePage("testimonials");
+    } else if(scrollPosition < viewportHeight * 5.5) {
       setActivePage("contact");
     }
   };
@@ -54,7 +51,7 @@ export default function Nav({ setIsAuthenticated, isAuthenticated }) {
     window.addEventListener("scroll", handleNavScroll);
     window.addEventListener("scroll", handlePageScroll);
     window.addEventListener("resize", handleResize);
-    handleResize(); // Check initial size on mount
+    handleResize();
 
     return () => {
       window.removeEventListener("scroll", handleNavScroll);
@@ -83,13 +80,7 @@ export default function Nav({ setIsAuthenticated, isAuthenticated }) {
       ) : (
         <>
           <ul className="flex gap-5">
-            {[
-              "home",
-              "about",
-              "menu",
-              "testimonials",
-              "contact",
-            ].map((page) => (
+            {["home", "about", "menu", "testimonials", "contact"].map((page) => (
               <li
                 key={page}
                 onClick={() => handlePosition(page)}

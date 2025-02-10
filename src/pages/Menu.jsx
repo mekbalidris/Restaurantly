@@ -33,51 +33,46 @@ export default function Menu() {
     ? foodItems
     : foodItems.filter((item) => item.category === category);
 
-  return (
-
-    <>
-    <div id="menu">
-
-    <div className="bg-secondbg flex flex-col justify-center h-screen w-full">
-      {/* Menu Title */}
-      <div className="flex flex-row mt-[15rem] lg:mt-[0]">
-        <div className="pl-4 ml-105">
-          <div className="flex flex-row items-center">
-            <span className="text-gray-500">MENU</span>
-            <div className="bg-golden" style={{ width: "150px", height: "1px", margin: "0 10px" }} />
+    return (
+      <div id="menu" className="bg-secondbg flex flex-col justify-center h-auto w-full py-16 px-4 sm:px-6">
+        {/* Menu Title */}
+        <div className="flex flex-row justify-center">
+          <div className="text-center">
+            <div className="flex flex-row items-center justify-center">
+              <span className="text-gray-500">MENU</span>
+              <div className="bg-golden w-16 h-[2px] mx-4"></div>
+            </div>
+            <div className="title text-4xl sm:text-5xl mt-2">Check Our Tasty Menu</div>
           </div>
-          <div className="title text-10">Check Our Tasty Menu</div>
+        </div>
+  
+        {/* Categories */}
+        <div className="flex flex-row justify-center gap-4 mt-8 flex-wrap">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              className={`px-4 py-2 rounded-lg ${
+                cat === category ? "bg-golden text-black" : "bg-transparent text-white"
+              }`}
+              onClick={() => setCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+  
+        {/* Food Items */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+          {filteredFoodItems.map((food) => (
+            <Food
+              key={food.id}
+              image={food.image}
+              title={food.title}
+              description={food.description}
+              price={food.price}
+            />
+          ))}
         </div>
       </div>
-
-      {/* Categories */}
-      <div className="flex flex-row justify-center align-middle gap-6 mt-14">
-        {categories.map((cat) => (
-          <div
-            key={cat}
-            className={`cursor-pointer ${cat === category ? "text-yellow-400 font-bold" : "text-white"}`}
-            onClick={() => setCategory(cat)}
-          >
-            {cat}
-          </div>
-        ))}
-      </div>
-
-      {/* Food Items */}
-      <div className="bg-secondbg w-full pt-5 pl-3 grid grid-cols-1 lg:grid-cols-2 gap-4">
-        {filteredFoodItems.slice(0, 4).map((food) => (
-          <Food
-            key={food.id}
-            image={food.image}
-            title={food.title}
-            description={food.description}
-            price={food.price}
-          />
-        ))}
-      </div>
-    </div>
-    </div>
-
-    </>
-  );
-}
+    );
+  }
