@@ -8,46 +8,48 @@ export default function Nav({ setIsAuthenticated, isAuthenticated }) {
   const [activePage, setActivePage] = useState("home");
   const [teleporting, setTeleporting] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu visibility
+  const [navigatedToHome, setNavigatedToHome] = useState(false); // Track navigation to home
+  const [targetSection, setTargetSection] = useState(null); // Track the target section
 
   const navigate = useNavigate()
   const location = useLocation()
 
   const handlePosition = (sectionId) => {
     if (location.pathname !== '/') {
-      // Navigate to home page
+      // Navigate to home page and set the target section
+      setTargetSection(sectionId);
       navigate('/');
-  
-      // Use setTimeout to delay the scroll logic until after navigation
-      setTimeout(() => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          setTeleporting(true);
-          setActivePage(sectionId);
-          section.scrollIntoView({ behavior: "smooth" });
-  
-          setTimeout(() => {
-            setTeleporting(false);
-          }, 1000); // Reset teleporting state after 1 second
-        }
-      }, 100); // Small delay to allow DOM to update after navigation
     } else {
-      // If already on home page, call handlePosition directly
-      const section = document.getElementById(sectionId);
-      if (section) {
-        setTeleporting(true);
-        setActivePage(sectionId);
-        section.scrollIntoView({ behavior: "smooth" });
-  
-        setTimeout(() => {
-          setTeleporting(false);
-        }, 1000); // Reset teleporting state after 1 second
-      }
+      // If already on home page, teleport directly
+      teleportToSection(sectionId);
     }
     setIsMenuOpen(false); // Close the mobile menu
   };
 
+  // Function to perform the teleporting logic
+  const teleportToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      setTeleporting(true);
+      setActivePage(sectionId);
+      section.scrollIntoView({ behavior: "smooth" });
+
+      setTimeout(() => {
+        setTeleporting(false);
+      }, 1000); // Reset teleporting state after 1 second
+    }
+  };
+
+  useEffect(() => {
+    if (location.pathname === '/' && targetSection) {
+      // Navigation to home is complete, teleport to the target section
+      teleportToSection(targetSection);
+      setTargetSection(null); // Reset the target section
+    }
+  }, [location, targetSection]);
+
   const handlePageScroll = () => {
-    if (teleporting) return;
+    if (teleporting || location.pathname !== '/') return;
 
     const scrollPosition = window.scrollY;
     const viewportHeight = window.innerHeight;
