@@ -33,7 +33,7 @@ export default function About() {
         {/* Overlay for the background */}
         <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-85 z-1"></div>
 
-        <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-center gap-8 w-full max-w-6xl mx-auto px-6">
+        <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-center gap-8 w-full max-w-6xl mx-auto px-6" data-aos="fade-up">
           {/* Left Side - Text Content */}
           <div className="w-full lg:w-1/2 text-white flex flex-col justify-center text-center lg:text-left">
             <h2 className="text-2xl md:text-3xl font-bold mt-10 lg:mt-0">
@@ -62,9 +62,10 @@ export default function About() {
 
           {/* Right Side - Image */}
           <div
-            className="w-full lg:w-1/2 h-64 md:h-96 bg-cover bg-center rounded-lg shadow-lg"
+            className="w-full lg:w-1/2 h-64 md:h-96 bg-cover bg-center rounded-lg shadow-lg hover:scale-105 transition-transform duration-700"
             style={{
               backgroundImage: `url(${about_bg})`,
+              border: "1px solid white"
             }}
           ></div>
         </div>
