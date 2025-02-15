@@ -21,6 +21,7 @@ export default function SignUp({ setIsAuthenticated, isAuthenticated }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if(formData.password == formData.password_confirmation){
         try {
             const response = await axios.post("http://localhost:3001/register", formData);
             console.log("Registration response:", response.data); // Log the response
@@ -33,6 +34,7 @@ export default function SignUp({ setIsAuthenticated, isAuthenticated }) {
             console.error("Error during registration:", error.response?.data || error.message); // Log the error
             setError(error.response?.data.errors || { server: 'An error occurred. Please try again.' });
         }
+    }
     };
 
     useEffect(() => {
@@ -92,7 +94,7 @@ export default function SignUp({ setIsAuthenticated, isAuthenticated }) {
                                 placeholder="Name"
                                 className={`w-full px-4 py-2 border rounded-lg ${error.name ? "border-red-500" : "border-gray-300"}`}
                             />
-                            {error.name && <p className="text-red-500 text-sm">{error.name[0]}</p>}
+                            {error.name && <p className="text-red-500 text-sm">{error.name}</p>}
                         </div>
 
                         {/* Email Field */}
@@ -105,7 +107,7 @@ export default function SignUp({ setIsAuthenticated, isAuthenticated }) {
                                 placeholder="Email"
                                 className={`w-full px-4 py-2 border rounded-lg ${error.email ? "border-red-500" : "border-gray-300"}`}
                             />
-                            {error.email && <p className="text-red-500 text-sm">{error.email[0]}</p>}
+                            {error.email && <p className="text-red-500 text-sm">{error.email}</p>}
                         </div>
 
                         {/* Password Field */}
@@ -118,7 +120,7 @@ export default function SignUp({ setIsAuthenticated, isAuthenticated }) {
                                 placeholder="Password"
                                 className={`w-full px-4 py-2 border rounded-lg ${error.password ? "border-red-500" : "border-gray-300"}`}
                             />
-                            {error.password && <p className="text-red-500 text-sm">{error.password[0]}</p>}
+                            {error.password && <p className="text-red-500 text-sm">{error.password}</p>}
                         </div>
 
                         {/* Password Confirmation Field */}
@@ -131,7 +133,7 @@ export default function SignUp({ setIsAuthenticated, isAuthenticated }) {
                                 placeholder="Confirm Password"
                                 className={`w-full px-4 py-2 border rounded-lg ${error.password_confirmation ? "border-red-500" : "border-gray-300"}`}
                             />
-                            {error.password_confirmation && <p className="text-red-500 text-sm">{error.password_confirmation[0]}</p>}
+                            {formData.password !== formData.password_confirmation ? <p className="text-red-500 text-sm">Confirmation Password Incorrect</p> : <p className="text-red-500 text-sm"></p>}
                         </div>
 
                         {/* Submit Button */}

@@ -90,7 +90,7 @@ export default function Login({ setIsAuthenticated, isAuthenticated }) {
                                 placeholder="Email"
                                 className={`w-full px-4 py-2 border rounded-lg ${error.email ? "border-red-500" : "border-gray-300"}`}
                             />
-                            {error.email && <p className="text-red-500 text-sm">{error.email[0]}</p>}
+                            {error.email && <p className="text-red-500 text-sm">{error.email}</p>}
                         </div>
 
                         {/* Password Field */}
@@ -103,7 +103,7 @@ export default function Login({ setIsAuthenticated, isAuthenticated }) {
                                 placeholder="Password"
                                 className={`w-full px-4 py-2 border rounded-lg ${error.password ? "border-red-500" : "border-gray-300"}`}
                             />
-                            {error.password && <p className="text-red-500 text-sm">{error.password[0]}</p>}
+                            {error.password && <p className="text-red-500 text-sm">{error.password}</p>}
                         </div>
 
                         {/* Submit Button */}
