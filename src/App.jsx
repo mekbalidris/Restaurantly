@@ -19,7 +19,7 @@ const [isAuthenticated, setIsAuthenticated] = useState(false);
 const token = localStorage.getItem("accessToken");
 
 useEffect(() => {
-    if(1<10){
+    if(token){
         setIsAuthenticated(true);
     }
 },[token])
