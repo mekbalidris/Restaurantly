@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import process from '../../../.env'
 
 export default function Login({ setIsAuthenticated, isAuthenticated }) {
     const [formData, setFormData] = useState({
@@ -20,7 +21,7 @@ export default function Login({ setIsAuthenticated, isAuthenticated }) {
         e.preventDefault();
 
         try {
-            const response = await axios.post("http://127.0.0.1:3001/api/login", formData);
+            const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/login`, formData);
             console.log("Login response:", response.data); // Log the response
             localStorage.setItem("accessToken", response.data.access_token);
             setIsAuthenticated(true);

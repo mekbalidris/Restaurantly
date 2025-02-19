@@ -23,7 +23,7 @@ export default function SignUp({ setIsAuthenticated, isAuthenticated }) {
 
         if(formData.password == formData.password_confirmation){
         try {
-            const response = await axios.post("http://localhost:3001/api/register", formData);
+            const response = await axios.post("http://valiant-generosity-production.up.railway.app/api/register", formData);
             console.log("Registration response:", response.data); // Log the response
             localStorage.setItem("accessToken", response.data.access_token);
             setIsAuthenticated(true);

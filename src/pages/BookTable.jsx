@@ -56,7 +56,7 @@ export default function BookTable({ isAuthenticated }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:3001/api/book-table', formData);
+            const response = await axios.post('http://valiant-generosity-production.up.railway.app/api/book-table', formData);
             console.log("Booking response:", response.data);
             alert("Table successfully booked!");
         } catch (error) {
