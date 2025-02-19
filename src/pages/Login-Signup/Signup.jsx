@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import process from '../../../.env'
 
 export default function SignUp({ setIsAuthenticated, isAuthenticated }) {
     const [formData, setFormData] = useState({
