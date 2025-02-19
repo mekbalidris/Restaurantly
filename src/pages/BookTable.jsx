@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function BookTable({ isAuthenticated }) {
     const navigate = useNavigate();
@@ -9,7 +10,7 @@ export default function BookTable({ isAuthenticated }) {
         date: "",
         hour: "",
         numberOfPeople: "",
-        foodChoices: []
+        foodChoices: {} // Store food choices as { foodName: quantity }
     });
 
     const foodOptions = ["Pasta", "Pizza", "Burger", "Salad", "Steak"];
@@ -27,17 +28,41 @@ export default function BookTable({ isAuthenticated }) {
     };
 
     const handleFoodChoiceChange = (e) => {
-        const { value, checked } = e.target;
-        const updatedChoices = checked
-            ? [...formData.foodChoices, value]
-            : formData.foodChoices.filter((choice) => choice !== value);
+        const { name, value, checked } = e.target;
+        const updatedChoices = { ...formData.foodChoices };
+
+        if (checked) {
+            updatedChoices[name] = 1; // Default quantity is 1
+        } else {
+            delete updatedChoices[name]; // Remove the food item if unchecked
+        }
+
         setFormData({ ...formData, foodChoices: updatedChoices });
     };
 
-    const handleSubmit = (e) => {
+    const handleQuantityChange = (e, food) => {
+        const { value } = e.target;
+        const updatedChoices = { ...formData.foodChoices };
+
+        if (value > 0) {
+            updatedChoices[food] = parseInt(value, 10); // Update the quantity
+        } else {
+            delete updatedChoices[food]; // Remove the food item if quantity is 0
+        }
+
+        setFormData({ ...formData, foodChoices: updatedChoices });
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Booking Data:", formData);
-        alert("Table successfully booked!");
+        try {
+            const response = await axios.post('http://127.0.0.1:3001/api/book-table', formData);
+            console.log("Booking response:", response.data);
+            alert("Table successfully booked!");
+        } catch (error) {
+            console.error("Error booking table:", error.response?.data || error.message);
+            alert("Failed to book table. Please try again.");
+        }
     };
 
     return (
@@ -125,16 +150,28 @@ export default function BookTable({ isAuthenticated }) {
                         <label className="block font-medium mb-2 text-white">Food Choices</label>
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
                             {foodOptions.map((food) => (
-                                <label key={food} className="flex items-center gap-2 text-white">
-                                    <input
-                                        type="checkbox"
-                                        name="foodChoices"
-                                        value={food}
-                                        onChange={handleFoodChoiceChange}
-                                        className="focus:ring-golden"
-                                    />
-                                    {food}
-                                </label>
+                                <div key={food} className="flex flex-col gap-2">
+                                    <label className="flex items-center gap-2 text-white">
+                                        <input
+                                            type="checkbox"
+                                            name={food}
+                                            checked={!!formData.foodChoices[food]}
+                                            onChange={handleFoodChoiceChange}
+                                            className="focus:ring-golden"
+                                        />
+                                        {food}
+                                    </label>
+                                    {formData.foodChoices[food] && (
+                                        <input
+                                            type="number"
+                                            min="1"
+                                            value={formData.foodChoices[food]}
+                                            onChange={(e) => handleQuantityChange(e, food)}
+                                            className="w-full p-2 border border-golden bg-mainbg rounded-md focus:outline-none focus:ring-2 focus:ring-golden"
+                                            placeholder="Quantity"
+                                        />
+                                    )}
+                                </div>
                             ))}
                         </div>
                     </div>
