@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import process from '../../../.env'
 
 export default function SignUp({ setIsAuthenticated, isAuthenticated }) {
     const [formData, setFormData] = useState({
@@ -23,7 +24,7 @@ export default function SignUp({ setIsAuthenticated, isAuthenticated }) {
 
         if(formData.password == formData.password_confirmation){
         try {
-            const response = await axios.post("http://valiant-generosity-production.up.railway.app/api/register", formData);
+            const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/register`, formData);
             console.log("Registration response:", response.data); // Log the response
             localStorage.setItem("accessToken", response.data.access_token);
             setIsAuthenticated(true);

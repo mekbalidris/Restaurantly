@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import process from '../../../.env'
 
 export default function BookTable({ isAuthenticated }) {
     const navigate = useNavigate();
@@ -56,7 +57,7 @@ export default function BookTable({ isAuthenticated }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://valiant-generosity-production.up.railway.app/api/book-table', formData);
+            const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/book-table`, formData);
             console.log("Booking response:", response.data);
             alert("Table successfully booked!");
         } catch (error) {
