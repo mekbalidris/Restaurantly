@@ -19,12 +19,14 @@ export default function SignUp({ setIsAuthenticated, isAuthenticated }) {
         setFormData({ ...formData, [name]: value });
     };
 
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         if(formData.password == formData.password_confirmation){
         try {
-            const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/register`, formData);
+            const response = await axios.post(`${backendUrl}/api/register`, formData);
             console.log("Registration response:", response.data); // Log the response
             localStorage.setItem("accessToken", response.data.access_token);
             setIsAuthenticated(true);

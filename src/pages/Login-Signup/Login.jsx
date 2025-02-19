@@ -17,11 +17,13 @@ export default function Login({ setIsAuthenticated, isAuthenticated }) {
         setFormData({ ...formData, [name]: value });
     };
 
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/login`, formData);
+            const response = await axios.post(`${backendUrl}/api/login`, formData);
             console.log("Login response:", response.data); // Log the response
             localStorage.setItem("accessToken", response.data.access_token);
             setIsAuthenticated(true);
