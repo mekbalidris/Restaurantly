@@ -19,9 +19,9 @@ export default function BookTable({ isAuthenticated }) {
 
     useEffect(() => {
         if (!isAuthenticated) {
-            navigate("/accessaccount");
+            navigate("/accessaccount"); 
         }
-    }, [navigate, isAuthenticated]);
+    }, [isAuthenticated, navigate]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
