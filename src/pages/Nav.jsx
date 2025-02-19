@@ -91,8 +91,7 @@ export default function Nav({ setIsAuthenticated, isAuthenticated }) {
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     setIsAuthenticated(false);
-    navigate("/accessaccount");
-    window.location.reload();
+    navigate("/accessaccount", { replace: true});
   };
 
   return (
